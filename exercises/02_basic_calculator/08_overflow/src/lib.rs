@@ -19,7 +19,7 @@ mod tests {
 
     #[test]
     fn twentieth() {
-        // 20! is 2432902008176640000, which is too large to fit in a u32
+        // 20! is 2_432_902_008_176_640_000, which is too large to fit in a u32
         // With the default dev profile, this will panic when you run `cargo test`
         // We want it to wrap around instead
         assert_eq!(factorial(20), 2_192_834_560);
