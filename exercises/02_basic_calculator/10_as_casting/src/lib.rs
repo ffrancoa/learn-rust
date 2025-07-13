@@ -24,14 +24,20 @@ mod tests {
         // You could solve this by using exactly the same expression as above,
         // but that would defeat the purpose of the exercise. Instead, use a genuine
         // `i8` value that is equivalent to `255` when converted to `u8`.
-        let y: i8 = 0;
+        let y: i8 = -1;
+        // personal note: the i8 type goes from -128 to 127, including 0, so in this
+        // case and considering that the exceding are 'wrapping', we have 255 - 127
+        // = 128 starting from -128. At a first glance, I thought that the corresponding
+        // value for `y` has to be 0 (128 - 128) but no! for instance, if x = 128 then
+        // 128 - 127 = 1 and `y` has to be -128 (i.e., (1 - 1) - 128), so, finally, in
+        // this case the answer is (128 - 1) - 128 = 127 - 128 = -1
 
         assert_eq!(x, y);
     }
 
     #[test]
     fn bool_to_u8() {
-        let v: u8 = 0;
+        let v: u8 = 1; // 1 is true and 0 is false
         assert_eq!(true as u8, v);
     }
 }
